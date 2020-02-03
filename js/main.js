@@ -1,11 +1,12 @@
 /*----- constants -----*/
-const colors = {
-    'null': 'black',
-    1: 'red',
-    '-1': 'blue'
+// variables that cannot be changed
+const KEY = {
+    '1': 'X', //player 1
+    '-1': 'O', //player 2
+    'null': ''// empty square on the grid
 };
 
-const winningCombos = [
+const COMBOS = [
     [0, 1, 2], [0, 3, 6],
     [0, 4, 8], [1, 4, 7],
     [2, 4, 6], [2, 5, 8],
@@ -18,10 +19,11 @@ let turn;
 let winner;
 
 /*----- cached element references -----*/
-const gridEle = Array.from(document.querySelectorAll('#grid-container section'));
+const gridEle = Array.from(document.querySelectorAll('.grid-item'));
+const messageEle = document.getElementById('message');
 
 /*----- event listeners -----*/
-document.getElementById('grid-container').addEventListener('click', handleTurn);
+document.getElementById('grid-container').addEventListener('click', handleClick);
 
 /*----- functions -----*/
 
@@ -32,7 +34,7 @@ function init() {
         null, null, null
     ];
 
-    turn = colors[1];
+    turn = KEY[1];
     winner = null;
     
     render();
@@ -40,14 +42,14 @@ function init() {
 
 init();
 
-function handleTurn(e) {
+function handleClick(e) {
+
     let idx = gridEle.findIndex(function(eachGrid) {
     return eachGrid === e.target;
     });
     board[idx] = turn;
 
     turn = turn === 'X' ? 'O' : 'X';
-    
     render();
 }
 
