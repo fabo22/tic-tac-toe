@@ -28,15 +28,10 @@ document.getElementById('grid-container').addEventListener('click', handleClick)
 /*----- functions -----*/
 
 function init() {
-    board = [
-        null, null, null,
-        null, null, null,
-        null, null, null
-    ];
-
-    turn = KEY[1];
-    winner = null;
-    
+    // then need to visualize what a new game should look like
+    board = new Array(9).fill(null); // same as [null, null, null, null, null, null, null, null, null];
+    turn = 1;
+    winner = false;
     render();
 }
 
@@ -44,18 +39,29 @@ init();
 
 function handleClick(e) {
 
-    let idx = gridEle.findIndex(function(eachGrid) {
-    return eachGrid === e.target;
-    });
+    console.log(e.target.dataset.index);
+    let idx = e.target.dataset.index;
     board[idx] = turn;
+    // toggle turn
+    turn *= -1;
+    // check if winner
+    winner = checkWinner();
+    render();
+}
 
-    turn = turn === 'X' ? 'O' : 'X';
+function checkWinner() {
+    // write logic to determine winner
+    // return true or false
     render();
 }
 
 function render() {
-    board.forEach(function(playerMark, index){
-        gridEle[index].textContent = playerMark;
-        console.log(index);
+    // draws the game board
+    board.forEach(function(mark, index){
+        gridEle[index].textContent = KEY[mark];
+        console.log('Board: ', board);
+        console.log('Turn: ', turn);
     });
+    // transfer the state of the app to the DOM
+    // what data do we use to draw the board?
 }
