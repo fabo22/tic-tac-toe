@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  outline: 0 !important;
 }
 
 :root {
@@ -10,26 +11,20 @@
 }
 
 header {
-  font-size: 5vmin;
+  font-size: 8vmin;
   padding: 15px 15px;
+  font-family: 'Schoolbell', cursive;
+  
 }
 
 #grid-container {
   display: grid;
-  grid-template-columns: 23vmin 23vmin 23vmin;
-  grid-template-rows: 25vmin 25vmin 25vmin;
+  grid-template-columns: 21vmin 21vmin 21vmin;
+  grid-template-rows: 23vmin 23vmin 23vmin;
   background-color: rgb(255, 255, 255);
   padding: 10px;
   height: 20vmin;
-
-}
-
-#grid-container section.player1 {
-  color: var(--accent-dark);
-}
-
-#grid-container section.player2 {
-  color: var(--accent-light);
+  background-color: rgb(160, 153, 153);
 }
 
 .top { border-top: 4px solid black; }
@@ -39,20 +34,36 @@ header {
 
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 0px 55px;
+  padding: 0px 40px;
   font-family: 'Schoolbell', cursive;
   font-size: 200px;
-  color: var(--accent-dark);
+  /*color: var(--accent-dark);*/
+  background-color: rgb(160, 153, 153);
 }
 
 body {
   margin: 0;
   display: flex;
-  
+  background-color: rgb(160, 153, 153);
   flex-direction: column;
   align-items: center;
   padding-bottom: 65px;
 }
 
-h1 { margin-top: 59vmin; }
+h1 {
+  margin-top: 53vmin;
+  font-family: 'Schoolbell', cursive;
+  font-size: 38px;
+}
+
+button {
+  font-size: 20px;
+  padding: 14px;
+  margin-top: 2px;
+  border-radius: 50%;
+  border: 2px solid black;
+  font-family: 'Schoolbell', cursive;
+  color: white;
+  background-color: black;
+}
 
