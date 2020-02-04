@@ -69,6 +69,7 @@ function render() {
     // draws the game board
     board.forEach(function(mark, index){
         gridEle[index].textContent = KEY[mark];
+        gridEle[index].style.color = (KEY[mark] === 'X') ? '#BB4C3A' : '#336acf';
         message();
     });
     // transfer the state of the app to the DOM
